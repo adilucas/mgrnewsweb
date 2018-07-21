@@ -1,0 +1,10 @@
+<!-- globals: {{ slides }} -->
+<div class="carousel-container">
+    <article class="carousel-slide fadeSlide" ng-repeat="s in slides | limitTo:5" ng-show="currentSlide($index)">
+        <div class="gradient"></div>
+        <img ng-src="{{ s.urlToImage }}" alt="{{ s.title }}" title="{{ s.description }}">
+        <h2 class="caption-text">{{ s.title }}</h2>
+    </article>
+    <a class="prev" ng-click="prevSlide()">&#10094;</a>
+    <a class="next" ng-click="nextSlide()">&#10095;</a>
+</div>

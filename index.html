@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="mgrnews">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MgrNews - ehhh</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/journal/bootstrap.min.css" />
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="public/main.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand mb-0 h1" href="#">
+      <i class="mdi mdi-book-open-page-variant"></i> MgrNews
+    </a>
+  </nav>
+
+  <div class="container-fluid" ng-controller="rootCtrl">
+    <section class="best-section" dynamic-ctrl="BEST_SECT.codename + 'Ctrl'">
+      <div class="section-header">
+        <h1 class="section-header-text">{{ BEST_SECT.displayTitle }}</h1>
+      </div>
+      <div class="articles">
+        <slider slides="articles"></slider>
+      </div>
+    </section>
+  </div>
+
+
+
+  <!-- <div class="container-fluid" ng-controller="rootCtrl">
+        <div class="section-wrapper" ng-repeat="sect in SECTIONS">
+            <section ng-class="{'{{ sect.codename }}': true }" dynamic-ctrl="sect.codename + 'Ctrl'">
+                <div class="section-header">
+                    <h1 class="section-header-text">{{ sect.displayTitle }}</h1>
+                </div>
+                <div class="articles">
+                    <div class="main-articles-wrapper">
+                        <article class="main-article" ng-repeat="a in mainArticles">
+                            <a href="{{ a.url }}">
+                                <div class="gradient"></div>
+                                <img ng-src="{{ a.urlToImage }}" alt="{{ a.title }}" class="main-article-image" title="{{ a.description}}" />
+                                <h2 class="main-article-title">{{ a.title }}</h2>
+                            </a>
+                        </article>
+                    </div>
+                    <div class="snapshots-wrapper">
+                        <article class="snapshot" ng-repeat="s in snapshots">
+                            <a href="{{ s.url }}">
+                                <img ng-src="{{ s.urlToImage }}" alt="{{ s.title }}" class="snapshot-image" title="{{ s.description}}" />
+                                <h2 class="snapshot-title">{{ s.title }}</h2>
+                            </a>
+                        </article>
+                    </div>
+                    <div class="links-wrapper">
+                        <span class="more-info">Więcej:</span>
+                        <article class="link-only" ng-repeat="l in links">
+                            <a href="{{ l.url }}" title="{{ l.description }}">
+                                {{ l.title }}
+                            </a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div> -->
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+  <script src="public/app.js"></script>
+</body>
+
+</html>
