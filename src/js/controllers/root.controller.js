@@ -1,19 +1,19 @@
 export default ['$scope', $scope => {
     $scope.BEST_SECT = {
-        displayTitle: 'Świat',
+        displayTitle: 'World',
         codename: 'general',
     };
     $scope.SECTIONS = [{
             displayTitle: 'Sport',
             codename: 'sports',
         }, {
-            displayTitle: 'Biznes',
+            displayTitle: 'Business',
             codename: 'business',
         }, {
-            displayTitle: 'Rozrywka',
+            displayTitle: 'Entertainment',
             codename: 'entertainment',
         }, {
-            displayTitle: 'Technologia',
+            displayTitle: 'Technology & IT',
             codename: 'technology'
         }
         // 'health',

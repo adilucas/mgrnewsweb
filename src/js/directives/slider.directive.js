@@ -4,7 +4,7 @@ export default () => {
         scope: {
             slides: '='
         },
-        controller: ['$scope', $scope => {
+        controller: ['$scope', '$interval', ($scope, $interval) => {
             $scope.slideIndex = 0;
             $scope.maxSlides = 5;
             $scope.currentSlide = i => {
@@ -16,6 +16,10 @@ export default () => {
             $scope.prevSlide = () => {
                 $scope.slideIndex = ($scope.slideIndex - 1 < 0) ? $scope.maxSlides-1 : $scope.slideIndex-1;
             }
+
+            $interval(() => {
+                $scope.nextSlide();
+            }, 3000);
         }],
         templateUrl: 'templates/slider.html',
         link: (scope, el, attrs) => {

@@ -21,10 +21,30 @@
   <div class="container-fluid" ng-controller="rootCtrl">
     <section class="best-section" dynamic-ctrl="BEST_SECT.codename + 'Ctrl'">
       <div class="section-header">
-        <h1 class="section-header-text">{{ BEST_SECT.displayTitle }}</h1>
+        <h1 class="section-header-text">
+          <i class="mdi mdi-star"></i> {{ BEST_SECT.displayTitle }}</h1>
       </div>
       <div class="articles">
-        <slider slides="articles"></slider>
+        <div class="slider-wrapper">
+          <slider slides="articles"></slider>
+        </div>
+        <div class="best-second-column">
+          <article class="best-second-column-article" ng-repeat="a in articles | limitTo:4:5">
+            <a href="{{ a.url }}">
+              <div class="overlay"></div>
+              <img ng-src="{{ a.urlToImage }}" alt="{{ a.title }}" title="{{ a.description }}" />
+              <h2>{{ a.title }}</h2>
+            </a>
+          </article>
+        </div>
+      </div>
+      <div class="under-best-row">
+        <article class="under-best-article" ng-repeat="a in articles | limitTo:5:9">
+          <a href="{{ a.url }}">
+            <img ng-src="{{ a.urlToImage }}" alt="{{ a.title }}" title="{{ a.description }}" />
+            <h2>{{ a.title | limitTo:70 }}</h2>
+          </a>
+        </article>
       </div>
     </section>
   </div>
