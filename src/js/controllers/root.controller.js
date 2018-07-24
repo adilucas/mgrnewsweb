@@ -3,20 +3,25 @@ export default ['$scope', $scope => {
         displayTitle: 'World',
         codename: 'general',
     };
+    $scope.SMALL_SECT = {
+        displayTitle: 'Entertainment',
+        codename: 'entertainment',
+    };
     $scope.SECTIONS = [{
-            displayTitle: 'Sport',
+            displayTitle: 'Sports',
             codename: 'sports',
         }, {
             displayTitle: 'Business',
             codename: 'business',
         }, {
-            displayTitle: 'Entertainment',
-            codename: 'entertainment',
+            displayTitle: 'Science',
+            codename: 'science',
         }, {
             displayTitle: 'Technology & IT',
-            codename: 'technology'
-        }
-        // 'health',
-        // 'science',
+            codename: 'technology',
+        }, {
+            displayTitle: 'Health',
+            codename: 'health',
+        },
     ];
 }];

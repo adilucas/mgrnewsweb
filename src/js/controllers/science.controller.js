@@ -4,7 +4,7 @@ export default ['$scope', 'apiService', ($scope, apiService) => {
     $scope.snapshots = [];
     $scope.links = [];
 
-    apiService.getList('general').then(data => {
+    apiService.getList('science').then(data => {
         $scope.articles = data.articles;
         $scope.mainArticles = data.articles.slice(0, 3);
         $scope.snapshots = data.articles.slice(3, 9);
