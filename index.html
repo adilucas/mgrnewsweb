@@ -9,8 +9,17 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/journal/bootstrap.min.css" />
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.5.94/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="public/main.css" />
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122807436-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-122807436-1');
+  </script>
 </head>
-
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <a class="navbar-brand mb-0 h1" href="#">
@@ -22,7 +31,7 @@
     <section class="best-section" dynamic-ctrl="BEST_SECT.codename + 'Ctrl'">
       <div class="section-header">
         <h1 class="section-header-text">
-          <i class="mdi mdi-star"></i> {{ BEST_SECT.displayTitle }}</h1>
+          <i class="mdi mdi-{{ BEST_SECT.icon }}"></i> {{ BEST_SECT.displayTitle }}</h1>
       </div>
       <div class="articles">
         <div class="slider-wrapper">
@@ -50,7 +59,8 @@
     <div class="section-wrapper" ng-repeat="sect in SECTIONS">
       <section ng-class="{'{{ sect.codename }}': true }" dynamic-ctrl="sect.codename + 'Ctrl'">
         <div class="section-header">
-          <h1 class="section-header-text">{{ sect.displayTitle }}</h1>
+          <h1 class="section-header-text">
+            <i class="mdi mdi-{{sect.icon}}"></i> {{ sect.displayTitle }}</h1>
         </div>
         <div class="articles">
           <div class="main-articles-wrapper">
