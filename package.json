@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "postinstall": "npm run build:dev",
     "dev": "npm run build:dev && run-p bs watch:dev",
     "bs": "browser-sync start --config bs-config.js",
     "prebuild:dev": "npm run clean && mkdir public",
