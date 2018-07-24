@@ -7,7 +7,7 @@ class ApiService {
     }
 
     getList(category) {
-        return HTTP.get(this).get(`http://localhost:8080/headlines/${category}`).then(result => result.data);
+        return HTTP.get(this).get(`https://mgrnewsapi.herokuapp.com/headlines/${category}`).then(result => result.data);
     }
 
     static bootstrapService($http) {
