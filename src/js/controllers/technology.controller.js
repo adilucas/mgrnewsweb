@@ -1,4 +1,4 @@
-export default ['$scope', 'apiService', ($scope, apiService) => {
+export default ['$scope', '$window', 'apiService', ($scope, $window, apiService) => {
     $scope.articles = [];
     $scope.mainArticles = [];
     $scope.snapshots = [];
