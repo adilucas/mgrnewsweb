@@ -6,6 +6,15 @@ $bestColor: #313638;
 
 nav.navbar {
     font-size: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .alert {
+        font-size: 14px;
+        font-weight: normal;
+        margin-bottom: 0;
+    }
 }
 
 .section-wrapper {

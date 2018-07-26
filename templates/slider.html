@@ -1,7 +1,7 @@
 <!-- globals: {{ slides }} -->
 <div class="carousel-container">
     <article class="carousel-slide fadeSlide" ng-repeat="s in slides | limitTo:5" ng-show="currentSlide($index)">
-        <a href="{{ s.url }}">
+        <a href="{{ s.url }}" ng-click="sendGaClick($index, 'SliderBestClick')">
             <div class="gradient"></div>
             <img ng-src="{{ s.urlToImage }}" alt="{{ s.title }}" title="{{ s.description }}">
             <h2 class="caption-text">{{ s.title }}</h2>

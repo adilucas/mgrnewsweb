@@ -25,6 +25,22 @@
 
     ga('create', 'UA-122807436-1', 'auto');
     ga('send', 'pageview');
+
+    (function() {
+      if (!localStorage.unique_user_id) {
+        var id = generateId();
+        localStorage.setItem('unique_user_id', id);
+        
+        ga('set', 'userId', id);
+        ga('send', 'event', 'unique_user', 'created_new')
+      } else {
+        console.info('userId', localStorage.getItem('unique_user_id'));
+      }
+    })()
+
+    function generateId() {
+      return '_' + Math.random().toString(36).substr(2, 9);
+    }
   </script>
   <!-- End Google Analytics -->
 </head>
@@ -34,6 +50,10 @@
     <a class="navbar-brand mb-0 h1" href="#">
       <i class="mdi mdi-book-open-page-variant"></i> MgrNews
     </a>
+    <div class="alert alert-dismissible alert-danger">
+      <strong>Read this</strong>
+      The page uses cookies to track user activity. All on purpose of master's thesis concerning Google Analytics tool.
+    </div>
   </nav>
 
   <div class="container-fluid" ng-controller="rootCtrl">
@@ -48,7 +68,7 @@
         </div>
         <div class="best-second-column">
           <article class="best-second-column-article" ng-repeat="a in articles | limitTo:4:5">
-            <a href="{{ a.url }}">
+            <a href="{{ a.url }}" ng-click="sendGaClick($index, 'BestSecondColumnClick')">
               <div class="overlay"></div>
               <img ng-src="{{ a.urlToImage }}" alt="{{ a.title }}" title="{{ a.description }}" />
               <h2>{{ a.title }}</h2>
@@ -58,7 +78,7 @@
       </div>
       <div class="under-best-row">
         <article class="under-best-article" ng-repeat="a in articles | limitTo:4:9">
-          <a href="{{ a.url }}">
+          <a href="{{ a.url }}" ng-click="sendGaClick($index, 'UnderBestClick')">
             <img ng-src="{{ a.urlToImage }}" alt="{{ a.title }}" title="{{ a.description }}" />
             <h2>{{ a.title | limitTo:70 }}</h2>
           </a>
@@ -74,7 +94,7 @@
         <div class="articles">
           <div class="main-articles-wrapper">
             <article class="main-article" ng-repeat="a in mainArticles">
-              <a href="{{ a.url }}">
+              <a href="{{ a.url }}" ng-click="sendGaClick($index, 'MainRowArticleClick')">
                 <div class="gradient"></div>
                 <img ng-src="{{ a.urlToImage }}" alt="{{ a.title }}" class="main-article-image" title="{{ a.description}}" />
                 <h2 class="main-article-title">{{ a.title }}</h2>
@@ -83,7 +103,7 @@
           </div>
           <div class="snapshots-wrapper">
             <article class="snapshot" ng-repeat="s in snapshots">
-              <a href="{{ s.url }}">
+              <a href="{{ s.url }}" ng-click="sendGaClick($index, 'SnapshotRowArticleClick')">
                 <img ng-src="{{ s.urlToImage }}" alt="{{ s.title }}" class="snapshot-image" title="{{ s.description}}" />
                 <h2 class="snapshot-title">{{ s.title }}</h2>
               </a>

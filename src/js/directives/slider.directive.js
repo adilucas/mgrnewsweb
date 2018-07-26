@@ -4,7 +4,7 @@ export default () => {
         scope: {
             slides: '='
         },
-        controller: ['$scope', '$interval', ($scope, $interval) => {
+        controller: ['$scope', '$window', '$interval', ($scope, $window, $interval) => {
             $scope.slideIndex = 0;
             $scope.maxSlides = 5;
             $scope.currentSlide = i => {
@@ -15,6 +15,10 @@ export default () => {
             }
             $scope.prevSlide = () => {
                 $scope.slideIndex = ($scope.slideIndex - 1 < 0) ? $scope.maxSlides-1 : $scope.slideIndex-1;
+            }
+
+            $scope.sendGaClick = function (index, category) {
+                $window.ga('send', 'event', category, 'click', 'general', index);
             }
 
             $interval(() => {

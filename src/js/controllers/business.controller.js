@@ -10,4 +10,8 @@ export default ['$scope', 'apiService', ($scope, apiService) => {
         $scope.snapshots = data.articles.slice(3, 9);
         $scope.links = data.articles.slice(9, 10);
     });
+
+    $scope.sendGaClick = function (index, category) {
+        $window.ga('send', 'event', category, 'click', 'business', index);
+    }
 }];

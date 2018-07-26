@@ -1,4 +1,4 @@
-export default ['$scope', 'apiService', ($scope, apiService) => {
+export default ['$scope', '$window', 'apiService', ($scope, $window, apiService) => {
     $scope.articles = [];
     $scope.mainArticles = [];
     $scope.snapshots = [];
@@ -10,4 +10,8 @@ export default ['$scope', 'apiService', ($scope, apiService) => {
         $scope.snapshots = data.articles.slice(3, 9);
         $scope.links = data.articles.slice(9, 10);
     });
+
+    $scope.sendGaClick = function (index, category) {
+        $window.ga('send', 'event', category, 'click', 'sports', index);
+    }
 }];
