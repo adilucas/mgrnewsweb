@@ -26,15 +26,16 @@
     ga('create', 'UA-122807436-1', 'auto');
     ga('send', 'pageview');
 
-    (function() {
+    (function () {
       if (!localStorage.unique_user_id) {
         var id = generateId();
         localStorage.setItem('unique_user_id', id);
-        
+
         ga('set', 'userId', id);
         ga('send', 'event', 'unique_user', 'created_new')
       } else {
         console.info('userId', localStorage.getItem('unique_user_id'));
+        ga('set', 'userId', localStorage.getItem('unique_user_id'));
       }
     })()
 
